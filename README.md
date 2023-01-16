@@ -17,3 +17,16 @@ Push the image to the private repository.
 $ docker push localhost:31320/nginx:1.17
 Test the pushed image by deploying it.
 kubectl apply -f nginx-test-deploy.yml
+
+##############
+Build and push py app to private repo
+$ docker build -t demo-py-app:1.0.0 .
+$ docker tag demo-py-app:1.0.0 localhost:31320/demo-py-app:1.0.0
+$ docker push localhost:31320/demo-py-app:1.0.0
+
+Create helm chart, modify the defaults to matchyour requirements.
+$ helm create interview-demo
+
+Chart installation, create namespace if not present (--create-namespace). Good to do a dry run before installing(use --dry-run)
+Use: helm upgrade --install --create-namespace -n <namespace> -f environments/values.<environment>.yaml <your_release_name> <your_chart_path>
+$ helm upgrade --install test ./my-interview-demo

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: {{ include "my-interview-demo.fullname" . }}
+  name: {{ include "my-interview-demo.fullname" . }}
+spec:
+  ports:
+    - port: 3000
+      nodePort: 31323
+      protocol: TCP
+      targetPort: 3000
+  selector:
+    app: {{ include "my-interview-demo.fullname" . }}
+  type: NodePort
