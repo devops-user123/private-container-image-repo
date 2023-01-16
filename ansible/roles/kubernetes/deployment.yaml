@@ -15,11 +15,11 @@ spec:
         app: test-py-web-app
     spec:
       containers:
-        - image: localhost:31324/test-py-web-app:1.0.0
+        - image: localhost:31320/test-py-web-app:1.0.0
           name: test-py-web-app
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
           env:
             - name: DEPLOY_ENV
-              value: default
+              value: dev

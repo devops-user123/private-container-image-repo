@@ -1,7 +1,7 @@
 appName: "test-py-web-app"
-repository: "localhost:31324"
+repository: "localhost:31320"
 appVersion: "1.0.0"
-namespace: "default"
+#namespace: "default"
 replicaCount: 1
 port: 3000
-nodePort: 31324
+#nodePort: 31324
