@@ -28,5 +28,5 @@ Create helm chart, modify the defaults to matchyour requirements.
 $ helm create interview-demo
 
 Chart installation, create namespace if not present (--create-namespace). Good to do a dry run before installing(use --dry-run)
-Use: helm upgrade --install --create-namespace -n <namespace> -f environments/values.<environment>.yaml <your_release_name> <your_chart_path>
-$ helm upgrade --install test ./my-interview-demo
+Use: helm upgrade --install --create-namespace -n <namespace> -f environments/<environment>-values.yaml <your_release_name> <your_chart_path>
+$ helm upgrade --install test ./my-interview-demo (using default values file, use the values file based on environment)
