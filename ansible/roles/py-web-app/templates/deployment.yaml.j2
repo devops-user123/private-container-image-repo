@@ -15,7 +15,7 @@ spec:
         app: {{ appName }}
     spec:
       containers:
-        - image: "{{ repository }}/{{ appName }}:{{ appVersion }}
+        - image: {{ repository }}/{{ appName }}:{{ appVersion }}
           name: {{ appName }}
           imagePullPolicy: IfNotPresent
           ports:

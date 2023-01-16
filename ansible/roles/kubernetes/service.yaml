@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: test-py-web-app
+  name: test-py-web-app
+spec:
+  ports:
+    - port: 3000
+      nodePort: 31324
+      protocol: TCP
+      targetPort: 3000
+  selector:
+    app: test-py-web-app
+  type: NodePort

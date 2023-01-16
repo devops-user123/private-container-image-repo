@@ -2,7 +2,7 @@
 - name: Modify configuration based on environment
   template:
     src: ../templates/{{ item }}.yaml.j2
-    dest: ../../kubernetes/{{ item }}.yaml
+    dest: kubernetes/{{ item }}.yaml
   loop:
     - deployment
     - service
@@ -27,11 +27,11 @@
   k8s:
     state: present
     namespace: "{{ namespace }}"
-    src: ../kubernetes/deployment.yaml
+    src: kubernetes/deployment.yaml
 
 #Create Service to expose the web app deployed
 - name: "Create a Service object"
   k8s:
     state: present
     namespace: "{{ namespace }}"
-    src: ../kubernetes/service.yaml
+    src: kubernetes/service.yaml
