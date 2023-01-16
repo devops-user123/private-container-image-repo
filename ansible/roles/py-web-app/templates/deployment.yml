@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ appName }}
+  labels:
+    app: {{ appName }}
+spec:
+  replicas: {{ replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ appName }}
+  template:
+    metadata:
+      labels:
+        app: {{ appName }}
+    spec:
+      containers:
+        - image: "{{ repository }}:{{ appVersion }}
+          name: {{ appName }}
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          env:
+            - name: DEPLOY_ENV
+              value: {{ namespace }}
